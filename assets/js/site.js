@@ -102,12 +102,16 @@
 
   /* ---------- YouTube: facade that embeds where allowed, links out everywhere else ---------- */
   function facade(box, id, start, label) {
+    box.dataset.label = label;
     box.innerHTML = `<img src="${ytThumb(id)}" alt="" loading="lazy"><a class="yt-play" href="${ytUrl(id, start)}" ${ext} aria-label="${esc(label)}"><span class="play-diamond">${icon("play")}</span><span class="yt-badge mono">YouTube &nearr;</span></a>`;
     box.querySelector("a").addEventListener("click", ev => { if (INLINE) { ev.preventDefault(); embed(box, id, start); } });
   }
   function embed(box, id, start = 0) {
     // YouTube error 153 = the embed arrived without a referrer. Send the origin explicitly.
     if (typeof widget !== "undefined" && widget && dock.playing) widget.pause();
+    // only one video at a time: put the previous one back to its cover image
+    if (embed.cur && embed.cur.box !== box && embed.cur.box.isConnected) { const c = embed.cur; facade(c.box, c.id, c.start, c.label); }
+    embed.cur = { box, id, start, label: box.dataset.label || "" };
     const origin = encodeURIComponent(location.origin);
     box.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&start=${start}&rel=0&playsinline=1&origin=${origin}" title="YouTube video" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
   }

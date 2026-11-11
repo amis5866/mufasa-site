@@ -23,7 +23,7 @@
   --sky-low: #d9822b;
   --phase-accent: var(--amber);
 
-  --f-display: "Bodoni Moda", "Frank Ruhl Libre", "Didot", serif;
+  --f-display: "Bodoni Moda", "Noto Rashi Hebrew", "Didot", serif;
   --f-body: "Hanken Grotesk", "Heebo", system-ui, sans-serif;
   --f-mono: "JetBrains Mono", "Heebo", ui-monospace, monospace;
 
@@ -443,7 +443,7 @@ a:focus-visible, button:focus-visible, .slab:focus-visible, .masks:focus-visible
 [dir="rtl"] body { font-family: "Heebo", "Hanken Grotesk", system-ui, sans-serif; }
 [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .hero__line, [dir="rtl"] .masks__quote, [dir="rtl"] .big-quote,
 [dir="rtl"] .slab__body blockquote, [dir="rtl"] .note__text, [dir="rtl"] .now-track strong, [dir="rtl"] .vid figcaption b, [dir="rtl"] .date__day {
-  font-family: "Frank Ruhl Libre", "Bodoni Moda", serif; font-style: normal;
+  font-family: "Noto Rashi Hebrew", "Bodoni Moda", serif; font-style: normal; font-weight: 500;
 }
 [dir="rtl"] h2 { line-height: 1.05; letter-spacing: 0; }
 [dir="rtl"] [lang="en"] { font-family: var(--f-display); font-style: italic; }
