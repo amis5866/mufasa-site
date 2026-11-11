@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MUFASA Soul Trance</title>
+<meta name="description" content="MUFASA is the Soul Trance project of Israeli producer and DJ Ofir Meir. Progressive and psychedelic trance with emotional storytelling.">
+<meta property="og:title" content="MUFASA | Soul Trance">
+<meta property="og:image" content="assets/img/ofir-lion.jpg">
+<meta name="theme-color" content="#0b0718">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<!--HEAD-END-->
+</head>
+<body>
+
+<div class="sky" aria-hidden="true"></div>
+<canvas id="skyCanvas" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="spark" viewBox="0 0 560 24">
+    <path d="M0 12 L262 11.2 L280 0 L298 11.2 L560 12 L298 12.8 L280 24 L262 12.8 Z" fill="currentColor" opacity=".9"/>
+    <circle cx="280" cy="12" r="2.4" fill="#0b0718"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19L19 5M9 5h10v10" stroke="currentColor" stroke-width="2" fill="none"/></symbol>
+</svg>
+
+<header class="bar">
+  <a class="bar__mark" href="#top" aria-label="MUFASA"><img src="assets/img/mufasa-logo.png" alt="MUFASA"></a>
+  <nav id="nav" class="mono" aria-label="Main">
+    <a href="#story" data-i18n="nav.story">Story</a>
+    <a href="#horizon" data-i18n="nav.horizon">Horizon</a>
+    <a href="#originals" data-i18n="nav.originals">Originals</a>
+    <a href="#anatomy" data-i18n="nav.anatomy">Set anatomy</a>
+    <a href="#watch" data-i18n="nav.watch">Watch</a>
+    <a href="#dates" data-i18n="nav.dates">Dates</a>
+    <a href="#book" data-i18n="nav.book">Booking</a>
+  </nav>
+  <div class="bar__right">
+    <button class="lang mono" id="langBtn" type="button" lang="he" aria-label="Switch language">עברית</button>
+    <div class="clock">
+      <svg class="clock__dial" viewBox="0 0 22 22" aria-hidden="true">
+        <circle cx="11" cy="11" r="10" fill="none" stroke="rgba(162,238,255,.35)"/>
+        <path id="dialArc" d="" fill="none" stroke="var(--phase-accent)" stroke-width="2"/>
+        <circle id="dialDot" cx="11" cy="1" r="2.2" fill="var(--phase-accent)"/>
+      </svg>
+      <span class="clock__time" id="clockTime">18:30</span>
+      <span class="clock__phase mono" id="clockPhase">Golden hour</span>
+    </div>
+    <button class="burger mono" id="burger" type="button" aria-expanded="false" aria-controls="nav" data-i18n="nav.menu">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" data-phase="0">
+    <div class="hero__inner">
+      <p class="hero__kicker mono" data-i18n="hero.kicker">Ofir Meir &middot; Soul Trance Project &middot; Israel</p>
+      <h1><img class="hero__logo" src="assets/img/mufasa-logo.png" alt="MUFASA"></h1>
+      <p class="hero__line" data-i18n="hero.line">Progressive &amp; psychedelic trance that starts with a feeling.</p>
+      <div class="hero__cta">
+        <a class="btn" data-play="ep-01" href="https://soundcloud.com/mufasa_ofir_meir/01-rec-2026-11-05" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg> <span data-i18n="hero.start">Start the night</span></a>
+        <a class="btn btn--ghost" href="#book" data-i18n="hero.book">Book MUFASA</a>
+      </div>
+    </div>
+    <svg class="horizon-svg" viewBox="0 0 1600 340" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#120a26"/><stop offset="1" stop-color="#05030b"/>
+        </linearGradient>
+      </defs>
+      <path d="M0 250 C180 236 300 246 420 238 S700 228 820 236 1100 250 1240 240 1480 230 1600 238 V340 H0Z" fill="url(#ground)"/>
+      <g fill="#07040f">
+        <path d="M1215 244 l6-92 4 0 4 92z"/>
+        <path d="M1222 168 c-30 -18 -64 -20 -96 -14 c34 -2 62 4 92 22z M1226 160 c26 -26 70 -34 112 -30 c-40 4 -76 14 -108 38z M1224 182 c-18 -10 -40 -10 -58 -4 c20 0 38 4 56 12z"/>
+        <ellipse cx="1150" cy="146" rx="78" ry="13"/>
+        <ellipse cx="1300" cy="128" rx="96" ry="15"/>
+        <ellipse cx="1226" cy="138" rx="70" ry="12"/>
+        <ellipse cx="1180" cy="170" rx="36" ry="7"/>
+      </g>
+      <path id="grass" fill="#07040f" d=""/>
+    </svg>
+    <div class="scroll-hint mono"><span data-i18n="hero.scroll">Scroll into the night</span><i></i></div>
+    <div class="hero__ticker mono" aria-hidden="true"><span id="ticker"></span></div>
+  </section>
+
+  <section id="story" data-phase="1">
+    <div class="wrap story__grid">
+      <div class="rv">
+        <div class="masks" id="masks" role="slider" tabindex="0" aria-label="Masks off" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <img src="assets/img/mask-human.jpg" alt="Ofir Meir">
+          <img class="masks__lion" src="assets/img/mask-lion.jpg" alt="The MUFASA lion">
+          <div class="masks__handle"></div>
+        </div>
+        <div class="masks__labels mono"><span data-i18n="masks.l">&larr; Ofir</span><span data-i18n="masks.m">Drag</span><span data-i18n="masks.r">Mufasa &rarr;</span></div>
+        <p class="masks__quote" data-i18n="masks.q">&ldquo;I am transparent, I am whole, I am here. Masks off.&rdquo;<small>From the release notes of Masks Off, 2026</small></p>
+      </div>
+      <div>
+        <p class="eyebrow mono rv" data-i18n="story.eyebrow">19:40 &middot; Blue hour &middot; The story</p>
+        <h2 class="rv" data-i18n="story.h2">Music as a way <em>back</em>.</h2>
+        <p class="lede rv" data-i18n="story.lede">MUFASA is the Soul Trance project of Israeli producer and DJ Ofir Meir. Every track starts with a feeling or a message, and the music becomes its voice.</p>
+        <ol class="path">
+          <li class="rv" style="--dot:#9f1239"><span class="mono" data-i18n="p1.k">Before</span><h3 data-i18n="p1.h">Years of playing for fun</h3><p data-i18n="p1.p">An amateur musician for years. Music was something to enjoy on a night out, nothing more.</p></li>
+          <li class="rv" style="--dot:#7c3aed"><span class="mono" data-i18n="p2.k">The break</span><h3 data-i18n="p2.h">Injury, then recovery</h3><p data-i18n="p2.p">A personal journey through injury and a long recovery. Somewhere in the middle of it, electronic music stopped being entertainment and became a tool for healing.</p></li>
+          <li class="rv" style="--dot:#8b5cf6"><span class="mono" data-i18n="p3.k">Nine months</span><h3 data-i18n="p3.h">The first note</h3><p data-i18n="p3.p">He opened the production software, wrote one note, and kept going. Nine months later the first track was ready.</p></li>
+          <li class="rv" style="--dot:#22d3ee"><span class="mono" data-i18n="p4.k">13 Jul 2026</span><h3 data-i18n="p4.h">Sound Healing is released</h3><p data-i18n="p4.p">A track that leads from pain and rage to light and calm, made with Limor Bachar on vocals and Ami Sterling on guitar.</p></li>
+          <li class="rv" style="--dot:#a2eeff"><span class="mono" data-i18n="p5.k">Now</span><h3 data-i18n="p5.h">Journeys through sound, rhythm and emotion</h3><p data-i18n="p5.p">Original tracks, the Horizon Series of DJ sets, and long nights where his own music sits beside the trance artists he loves.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="horizon" data-phase="2">
+    <div class="wrap">
+      <svg class="spark rv" aria-hidden="true"><use href="#spark"/></svg>
+      <p class="eyebrow mono rv center" data-i18n="hz.eyebrow">21:00 &middot; Nightfall &middot; DJ sets</p>
+      <h2 class="rv center" data-i18n="hz.h2">The Horizon <em>Series</em></h2>
+      <p class="lede rv center" data-i18n="hz.lede">One night, from the golden light of sunset to the first rays of dawn. Each episode stands on its own. Together they tell one continuous story, with the music changing alongside the sky.</p>
+      <div class="strata" id="strata"></div>
+    </div>
+  </section>
+
+  <section id="originals" data-phase="3">
+    <div class="wrap">
+      <p class="eyebrow mono rv" data-i18n="or.eyebrow">23:10 &middot; Originals</p>
+      <h2 class="rv" data-i18n="or.h2">Four tracks, <em>four</em> stories.</h2>
+      <p class="lede rv" data-i18n="or.lede">Each one began as a feeling before it was a sound. Open one to read where it came from, then press play.</p>
+      <div class="slabs" id="slabs"></div>
+    </div>
+  </section>
+
+  <section id="anatomy" data-phase="3.4">
+    <div class="wrap">
+      <p class="eyebrow mono rv" data-i18n="an.eyebrow">01:20 &middot; Set anatomy</p>
+      <h2 class="rv" data-i18n="an.h2">Inside a <em>150-minute</em> night.</h2>
+      <p class="lede rv" data-i18n="an.lede">The birthday set, recorded live on 27 August 2026: 33 tracks, progressive into psytrance, with four of his own tracks hidden inside. Every bar below is one track. Click any of them to drop into the video at that exact moment.</p>
+      <div class="anatomy__stage">
+        <div class="rv">
+          <div class="yt-frame" id="bdayFrame"></div>
+          <div class="now-track" id="nowTrack"><span class="mono" data-i18n="an.pick">Pick a track on the timeline</span><strong>Mufasa B-Day set, 27.8.26</strong></div>
+        </div>
+        <div class="rv">
+          <p class="mono" style="color:var(--mist)" data-i18n="an.meta">Live, private party &middot; Recorded 27.08.2026</p>
+          <p class="big-quote" data-i18n="an.quote">&ldquo;A blend of progressive and psy trance, shared with amazing people on a special night.&rdquo;</p>
+          <div class="hero__cta start">
+            <a class="btn" data-play="bday" href="https://soundcloud.com/mufasa_ofir_meir/mufasa-b-day-set-27-8-26" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg> <span data-i18n="an.sc">Listen on SoundCloud</span></a>
+            <a class="btn btn--ghost" href="https://www.youtube.com/watch?v=07K_ATuu5UI" target="_blank" rel="noopener">YouTube <svg><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="timeline rv">
+        <div class="timeline__bar" id="timeline" role="list" aria-label="Birthday set tracks"></div>
+        <div class="timeline__ticks mono" id="ticks"></div>
+        <div class="timeline__legend mono"><span><i></i><span data-i18n="an.lg1">Tracks by other artists</span></span><span><i class="c"></i><span data-i18n="an.lg2">MUFASA originals</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="watch" data-phase="3.8">
+    <div class="wrap">
+      <p class="eyebrow mono rv" data-i18n="w.eyebrow">02:40 &middot; Watch</p>
+      <h2 class="rv" data-i18n="w.h2">On <em>screen</em>.</h2>
+      <div class="reel" id="reel"></div>
+      <div class="hero__cta rv start" style="margin-top:36px">
+        <a class="btn btn--ghost" href="https://www.youtube.com/@MufasaSoulTrance" target="_blank" rel="noopener"><span data-i18n="w.all">All videos on YouTube</span> <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="dates" data-phase="4.2">
+    <div class="wrap">
+      <p class="eyebrow mono rv" data-i18n="d.eyebrow">04:10 &middot; Upcoming</p>
+      <h2 class="rv" data-i18n="d.h2">Where the <em>sun</em> will find us.</h2>
+      <div class="dates" id="datesList"></div>
+    </div>
+  </section>
+
+  <section id="notes" data-phase="4.5" style="padding-top:40px">
+    <div class="wrap">
+      <p class="eyebrow mono rv" data-i18n="n.eyebrow">05:00 &middot; Field notes</p>
+      <h2 class="rv h2-sm" data-i18n="n.h2">From <em>@mufasa.soul.trance</em></h2>
+      <div class="notes" id="notesList"></div>
+      <div class="hero__cta start">
+        <a class="btn btn--ghost" href="https://www.instagram.com/mufasa.soul.trance/" target="_blank" rel="noopener">Instagram <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--ghost" href="https://www.facebook.com/profile.php?id=61590630098518" target="_blank" rel="noopener">Facebook <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" data-phase="5">
+    <div class="wrap">
+      <p class="eyebrow mono rv" data-i18n="b.eyebrow">05:40 &middot; First light &middot; Booking</p>
+      <h2 class="rv" data-i18n="b.h2">Bring the night <em>to you</em>.</h2>
+      <div class="book__grid">
+        <div class="rv">
+          <p class="lede" data-i18n="b.lede">Festivals, clubs, sunrise sets, private nights. Sets from 1 to 3 hours, from a golden-hour warm-up to peak-time psytrance.</p>
+          <p class="mono" style="color:var(--mist);margin-top:30px" data-i18n="b.write">Write directly</p>
+          <p class="book__mail" id="mailAddr" dir="ltr">lionking1008@gmail.com</p>
+          <button class="chip" type="button" id="copyMail" data-i18n="b.copyMail">Copy address</button>
+          <div class="kit">
+            <a href="https://drive.google.com/file/d/1Fjq1RikZKZyQO_E6P6zsSL9gJOrPjirK/view" target="_blank" rel="noopener"><span data-i18n="b.kit1">Electronic press kit (PDF, Hebrew)</span><span class="mono"><span data-i18n="b.open">Open</span> &nearr;</span></a>
+            <a href="press.html" id="pressLink"><span data-i18n="b.kit2">Press page: bios, photos, logo, rider</span><span class="mono"><span data-i18n="b.open">Open</span> &rarr;</span></a>
+            <a href="https://linktr.ee/mufasa.soul.trance" target="_blank" rel="noopener"><span data-i18n="b.kit3">All links</span><span class="mono">Linktree &nearr;</span></a>
+          </div>
+        </div>
+        <div class="rv">
+          <form class="form" id="bookForm">
+            <label for="f-name"><span data-i18n="f.name">Your name</span><input id="f-name" name="name" required autocomplete="name"></label>
+            <label for="f-email"><span data-i18n="f.email">Email</span><input id="f-email" name="email" type="email" required autocomplete="email" dir="ltr"></label>
+            <label for="f-event"><span data-i18n="f.event">Event or venue</span><input id="f-event" name="event" required></label>
+            <label for="f-city"><span data-i18n="f.city">City</span><input id="f-city" name="city"></label>
+            <label for="f-date"><span data-i18n="f.date">Date</span><input id="f-date" name="date" type="date"></label>
+            <label for="f-slot"><span data-i18n="f.slot">Set</span>
+              <select id="f-slot" name="slot">
+                <option value="o1" data-i18n="f.o1">Golden hour warm-up</option>
+                <option value="o2" data-i18n="f.o2">Nightfall, progressive</option>
+                <option value="o3" data-i18n="f.o3" selected>Midnight, peak psytrance</option>
+                <option value="o4" data-i18n="f.o4">Sunrise closing set</option>
+                <option value="o5" data-i18n="f.o5">A full Horizon night (3h)</option>
+              </select>
+            </label>
+            <label class="full" for="f-msg"><span data-i18n="f.msg">Tell us about the night</span><textarea id="f-msg" name="msg" data-i18n-ph="f.msgPh" placeholder="Crowd size, sound system, the vibe you're after"></textarea></label>
+            <button class="btn" type="submit" data-i18n="f.submit">Prepare booking request</button>
+            <p class="form__note" data-i18n="f.note">Fills in a ready message you can copy, or open in your email app.</p>
+          </form>
+          <div class="ready" id="ready" hidden>
+            <p class="mono" data-i18n="f.ready">Your message is ready. Copy it and send it to lionking1008@gmail.com.</p>
+            <pre id="readyText"></pre>
+            <div class="hero__cta start">
+              <button class="btn" type="button" id="copyMsg" data-i18n="f.copy">Copy message</button>
+              <a class="btn btn--ghost" id="mailApp" href="mailto:lionking1008@gmail.com" data-i18n="f.mailapp">Open in email app</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <svg class="spark" aria-hidden="true" style="margin-bottom:40px"><use href="#spark"/></svg>
+    <img class="foot__logo" src="assets/img/mufasa-logo.png" alt="MUFASA">
+    <p class="mono">Soul Trance &middot; Progressive &middot; Psychedelic</p>
+    <div class="platforms">
+      <a href="https://soundcloud.com/mufasa_ofir_meir" target="_blank" rel="noopener">SoundCloud</a>
+      <a href="https://open.spotify.com/artist/0R10ImF36hKI8UydOtklN6" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@MufasaSoulTrance" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/mufasa.soul.trance/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61590630098518" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://linktr.ee/mufasa.soul.trance" target="_blank" rel="noopener">Linktree</a>
+    </div>
+    <p class="foot__small mono" data-i18n="foot.small">&copy; 2026 Ofir Meir &middot; &#8471; Soul Trance &middot; Concept site, upcoming dates are placeholders</p>
+  </footer>
+</main>
+
+<div class="dock" id="dock" aria-live="polite">
+  <img class="dock__art" id="dockArt" alt="">
+  <button class="dock__pp" id="dockPP" type="button" aria-label="Play or pause"><svg><use href="#i-play" id="dockIcon"/></svg></button>
+  <div class="dock__info">
+    <div class="dock__sub mono"><span class="dock__eq"><i></i><i></i><i></i></span><span id="dockSub">Now playing</span></div>
+    <div class="dock__title" id="dockTitle">-</div>
+    <div class="dock__track" id="dockTrack"><div class="dock__fill" id="dockFill"></div></div>
+  </div>
+  <div class="dock__right">
+    <span class="dock__time mono" id="dockTime">0:00</span>
+    <a class="dock__close" id="dockOpen" href="#" target="_blank" rel="noopener" aria-label="Open on SoundCloud">&nearr;</a>
+    <button class="dock__close" id="dockClose" type="button" aria-label="Close player">&times;</button>
+  </div>
+</div>
+<!--PLAYER-START-->
+<iframe id="scWidget" title="SoundCloud player" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2432885223&auto_play=false"></iframe>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<!--PLAYER-END-->
+<div class="tip" id="tip"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/sky.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
